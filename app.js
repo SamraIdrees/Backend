@@ -10,6 +10,7 @@ import multer from "multer";
 // import connectDishIngredientRouter from "./routes/connectDishIngredientRoute.js";
 // import cartRouter from "./routes/cartRoutes.js"
 import userRoute from "./routes/userRoute.js"
+import chatRoutes from "./routes/chatRoutes.js";
 const app = express();
 
 // Enable CORS with specific origin and credentials
@@ -34,6 +35,7 @@ app.use(cookieParser());
 
 // Define routes for users and meal categories
 app.use("/users", userRoute);
+app.use("/api/chat", chatRoutes);
 
 
 
