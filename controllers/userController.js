@@ -25,13 +25,13 @@ export const registerUser = async (req, res) => {
 
     try {
         // Check if email or phone already exists
-        const existingUser = await User.findOne({ $or: [{ email }, { phone }] });
+        const existingUser = await User.findOne({ $or: [{ email }] });
         if (existingUser) {
             return res.status(409).json({ error: "User with this email or phone already exists." });
         }
 
         // Create and save a new user
-        const user = new User({ fullName, email, phone, password });
+        const user = new User({ fullName, email, password });
         await user.save();
 
        // Generate token for the new user
@@ -99,10 +99,10 @@ export const getUsers = async (req, res) => {
 // Update a user
 export const updateUsers = async (req, res) => {
     const { id } = req.params;
-    const { fullName, email, phone, password } = req.body;
+    const { fullName, email, password } = req.body;
 
     try {
-        const updateData = { fullName, email, phone };
+        const updateData = { fullName, email };
 
         if (password) {
             const salt = await bcrypt.genSalt(10);

@@ -37,8 +37,8 @@ export const authenticateToken = (req, res, next) => {
 // Sign-up validation based on userSchema
 export const signupValidation = (req, res, next) => {
     const schema = Joi.object({
-        fullName: Joi.string().min(5).max(100).required(), // fullName validation
-        phone: Joi.string().length(11).pattern(/^[0-9]+$/).required(), // phone validation (length and numeric)
+        fullName: Joi.string().min(4).max(100).required(), // fullName validation
+        // phone: Joi.string().length(11).pattern(/^[0-9]+$/).required(), // phone validation (length and numeric)
         email: Joi.string().email().required(), // email validation
         password: Joi.string().min(8).max(20).required(), // password validation
     });
