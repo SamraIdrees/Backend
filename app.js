@@ -16,7 +16,7 @@ const app = express();
 // Enable CORS with specific origin and credentials
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN, // Allow only the origin specified in the environment variable
+    origin: "https://ai-chatapp-two.vercel.app", // Allow only the origin specified in the environment variable
     credentials: true, // Enable credentials (cookies, authorization headers, etc.)
   })
 );
