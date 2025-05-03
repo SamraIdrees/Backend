@@ -35,7 +35,7 @@ app.use(cookieParser());
 
 // Define routes for users and meal categories
 app.use("/users", userRoute);
-app.use("/api/chat/:userId", chatRoutes);
+app.use("/api/chat", chatRoutes);
 
 
 
